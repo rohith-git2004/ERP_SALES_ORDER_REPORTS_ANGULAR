@@ -1,0 +1,7 @@
+<div class="report"><header><div><div class="brand">EUROCLOUD</div><div class="muted">ERP Management System</div></div><div class="title"><h1>SALES ORDER REPORT</h1><span>Professional Order Summary</span></div></header>
+<div class="no-print toolbar"><button (click)="print()">Print Report</button></div>
+<section class="cards"><div><span>Order No.</span><b>{{order.voucherNumber}}</b></div><div><span>Date</span><b>{{order.date}}</b></div><div><span>Customer</span><b>{{order.customer}}</b></div><div><span>Route</span><b>{{order.routePlan}}</b></div></section>
+<section><h2>Order Information</h2><div class="details"><div>Voucher Type<b>{{order.voucherType}}</b></div><div>Status<b>{{order.status}}</b></div><div>Total Products<b>{{order.items.length}}</b></div><div>Total Quantity<b>{{totalQty}}</b></div></div></section>
+<section><h2>Product Details</h2><table><thead><tr><th>Product</th><th>Code / Size</th><th>Quantity</th><th>Rate</th><th>Total</th></tr></thead><tbody>@for(i of order.items;track i.code){<tr><td>{{i.name}}</td><td>{{i.code}} / {{i.size}}</td><td>{{i.qty}}</td><td>{{money(i.rate)}}</td><td>{{money(i.qty*i.rate)}}</td></tr>}</tbody></table></section>
+<section class="summary"><h2>Order Summary</h2><div>Subtotal <b>{{money(subtotal)}}</b></div><div>VAT (5%) <b>{{money(vat)}}</b></div><div class="grand">Grand Total <b>{{money(total)}}</b></div></section>
+<footer><span>Prepared by: EuroCloud</span><span>Generated: {{order.date}}</span></footer></div>
